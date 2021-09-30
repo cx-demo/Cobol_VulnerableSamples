@@ -1,0 +1,23 @@
+        IDENTIFICATION DIVISION.
+        PROGRAM-ID. CobolGreeting.
+        DATA DIVISION.
+        WORKING-STORAGE SECTION.
+         01 IterNum PIC 9 VALUE 5.
+        PROCEDURE DIVISION.
+        BeginProgram.
+         EXEC CICS
+           WEB READ
+           FORMFIELD(ID)
+           VALUE(FILENAME)
+         END-EXEC.
+       
+       
+         EXEC CICS
+          READ
+          FILE(FILENAME)
+          INTO(RECORD)
+          RIDFLD(ACCTNO)
+          UPDATE
+         END-EXEC.
+        STOP RUN.
+       <EOF>
